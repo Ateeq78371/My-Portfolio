@@ -24,15 +24,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Stylesheets (Clean Modular Architecture) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.5">
   <link rel="stylesheet" href="assets/css/components.css?v=4.3">
 </head>
 <body>
 
-  <!-- Cinematic Futuristic Tech Backdrop & Animated Cyber Canvas -->
-  <div class="tech-bg-wrap">
-    <div class="tech-bg-image"></div>
-    <div class="tech-bg-overlay"></div>
+  <!-- Dynamic Scroll-Morphing Tech Backdrops & Living Cyber Canvas -->
+  <div class="scroll-bg-container" id="scroll-bg-container">
+    <div class="scroll-bg-slide active" id="bg-slide-hero" style="background-image: url('assets/images/bg-hero.jpg');"></div>
+    <div class="scroll-bg-slide" id="bg-slide-services" style="background-image: url('assets/images/bg-services.jpg');"></div>
+    <div class="scroll-bg-slide" id="bg-slide-skills" style="background-image: url('assets/images/bg-skills.jpg');"></div>
+    <div class="scroll-bg-slide" id="bg-slide-projects" style="background-image: url('assets/images/bg-projects.jpg');"></div>
+    <div class="scroll-bg-overlay"></div>
     <canvas id="cyber-canvas"></canvas>
   </div>
 
@@ -1168,6 +1171,6 @@ app = FastAPI(title=<span class="syn-str">"VisionExam AI Inference Service"</spa
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js?v=3.7"></script>
+  <script src="assets/js/main.js?v=3.8"></script>
 </body>
 </html>

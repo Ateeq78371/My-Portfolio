@@ -19,6 +19,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  // Dynamic Scroll-Morphing Background Controller
+  const bgSlideHero = document.getElementById('bg-slide-hero');
+  const bgSlideServices = document.getElementById('bg-slide-services');
+  const bgSlideSkills = document.getElementById('bg-slide-skills');
+  const bgSlideProjects = document.getElementById('bg-slide-projects');
+  const allBgSlides = [bgSlideHero, bgSlideServices, bgSlideSkills, bgSlideProjects].filter(Boolean);
+  let currentActiveSlideId = 'bg-slide-hero';
+
+  function updateScrollBackground(sectionId) {
+    let targetSlideId = 'bg-slide-hero';
+
+    if (sectionId === 'services') {
+      targetSlideId = 'bg-slide-services';
+    } else if (sectionId === 'skills' || sectionId === 'architecture') {
+      targetSlideId = 'bg-slide-skills';
+    } else if (sectionId === 'projects' || sectionId === 'experience' || sectionId === 'contact') {
+      targetSlideId = 'bg-slide-projects';
+    } else {
+      targetSlideId = 'bg-slide-hero';
+    }
+
+    if (targetSlideId !== currentActiveSlideId) {
+      currentActiveSlideId = targetSlideId;
+      allBgSlides.forEach(slide => {
+        if (slide.id === targetSlideId) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+  }
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       navbar.classList.add('scrolled');
@@ -26,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.classList.remove('scrolled');
     }
 
-    // Active link highlighting
+    // Active link highlighting & Background Morphing
     let current = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop - 150;
       const sectionHeight = section.offsetHeight;
       if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
         current = section.getAttribute('id');
@@ -42,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('active');
       }
     });
+
+    // Morph background to match current developer section
+    updateScrollBackground(current);
   });
 
   // 3. Mobile Navigation Drawer (Off-Canvas)
