@@ -44,32 +44,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Mobile Navigation Menu
+  // 3. Mobile Navigation Drawer (Off-Canvas)
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
+  const navOverlay = document.getElementById('nav-overlay');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
 
-  if (hamburgerBtn && navMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const icon = hamburgerBtn.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+  function openDrawer() {
+    if (!navMenu) return;
+    navMenu.classList.add('open');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.classList.add('drawer-open');
+  }
+
+  function closeDrawer() {
+    if (!navMenu) return;
+    navMenu.classList.remove('open');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu && navMenu.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
       }
     });
-
-    // Close menu when clicking link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        const icon = hamburgerBtn.querySelector('i');
-        if (icon) {
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        }
-      });
-    });
   }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeDrawer);
+  }
+
+  // Close drawer when clicking any nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // Close drawer with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
 
   // 4. Dark / Light Theme Toggle
   const themeToggleBtn = document.getElementById('theme-toggle-btn');

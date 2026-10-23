@@ -25,7 +25,7 @@
 
   <!-- Stylesheets (Clean Modular Architecture) -->
   <link rel="stylesheet" href="assets/css/style.css?v=3.2">
-  <link rel="stylesheet" href="assets/css/components.css?v=4.2">
+  <link rel="stylesheet" href="assets/css/components.css?v=4.3">
 </head>
 <body>
 
@@ -41,6 +41,11 @@
        ========================================================================== -->
   <header class="navbar">
     <div class="nav-container">
+      <!-- Mobile Drawer Toggle (Left Side on Mobile) -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open Navigation Drawer" title="Open Navigation Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
       <a href="#hero" class="nav-brand" title="Muhammad Ateeq Portfolio">
         <div class="brand-logo-wrap">
           <img src="assets/images/logo.svg" alt="Muhammad Ateeq Logo" class="brand-logo-img">
@@ -51,14 +56,34 @@
         </div>
       </a>
 
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#hero" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#contact" class="nav-link">Contact</a>
+      <!-- Off-Canvas Navigation Drawer -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <!-- Drawer Header (Mobile Only) -->
+        <div class="drawer-header">
+          <div class="drawer-brand">
+            <div class="brand-logo-wrap">
+              <img src="assets/images/logo.svg" alt="Muhammad Ateeq Logo" class="brand-logo-img">
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">Muhammad Ateeq</span>
+            </div>
+          </div>
+          <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Navigation Menu">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="drawer-links-wrap">
+          <a href="#hero" class="nav-link active"><i class="fas fa-house"></i> <span>Home</span></a>
+          <a href="#about" class="nav-link"><i class="fas fa-user"></i> <span>About</span></a>
+          <a href="#services" class="nav-link"><i class="fas fa-cubes"></i> <span>Services</span></a>
+          <a href="#skills" class="nav-link"><i class="fas fa-layer-group"></i> <span>Skills</span></a>
+          <a href="#projects" class="nav-link"><i class="fas fa-briefcase"></i> <span>Projects</span></a>
+          <a href="#experience" class="nav-link"><i class="fas fa-graduation-cap"></i> <span>Experience</span></a>
+          <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> <span>Contact</span></a>
+        </div>
+
         <div class="nav-menu-mobile-actions">
           <a href="https://github.com/Ateeq78371" target="_blank" rel="noopener noreferrer" class="btn-secondary mobile-menu-btn">
             <i class="fab fa-github"></i>
@@ -66,10 +91,13 @@
           </a>
           <a href="assets/docs/Muhammad_Ateeq_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary mobile-menu-btn">
             <i class="fas fa-file-pdf"></i>
-            <span>View / Download Resume (PDF)</span>
+            <span>Download Resume</span>
           </a>
         </div>
       </nav>
+
+      <!-- Off-Canvas Backdrop Overlay -->
+      <div class="nav-overlay" id="nav-overlay"></div>
 
       <div class="nav-actions">
         <!-- Theme Toggle -->
@@ -87,11 +115,6 @@
           <i class="fas fa-file-pdf"></i>
           <span>Resume</span>
         </a>
-
-        <!-- Mobile Hamburger Button -->
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Mobile Menu">
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
     </div>
   </header>
@@ -1142,6 +1165,6 @@ app = FastAPI(title=<span class="syn-str">"VisionExam AI Inference Service"</spa
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js?v=3.5"></script>
+  <script src="assets/js/main.js?v=3.6"></script>
 </body>
 </html>
