@@ -1,0 +1,214 @@
+/* ==========================================================================
+   MUHAMMAD ATEEQ - PORTFOLIO DESIGN SYSTEM & BASE STYLES
+   Clean Architecture CSS: Tokens, Typography, Resets & Base Variables
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette - Dark Mode Default */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2234;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --bg-card-hover: rgba(26, 34, 52, 0.85);
+  --bg-glass: rgba(15, 23, 42, 0.65);
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(59, 130, 246, 0.4);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Brand Accent & Gradients */
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  --gradient-emerald: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --gradient-text: linear-gradient(135deg, #ffffff 20%, #93c5fd 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --glow-blue: 0 0 35px rgba(59, 130, 246, 0.25);
+  --glow-cyan: 0 0 35px rgba(6, 182, 212, 0.25);
+  
+  /* Layout & Transitions */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-hover: rgba(59, 130, 246, 0.5);
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  --gradient-text: linear-gradient(135deg, #0f172a 20%, #2563eb 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --glow-blue: 0 0 35px rgba(59, 130, 246, 0.12);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  position: relative;
+}
+
+/* Ambient Background Lights */
+.ambient-glow-1 {
+  position: fixed;
+  top: -150px;
+  right: -100px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+  max-width: 100vw;
+}
+
+.ambient-glow-2 {
+  position: fixed;
+  bottom: 10%;
+  left: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  max-width: 100vw;
+}
+
+/* Container & Typography */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Section Header Utility */
+.section-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gradient-primary);
+  z-index: 1000;
+  transition: width 0.1s ease-out;
+}
