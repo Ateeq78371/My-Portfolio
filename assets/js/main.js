@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sectionId === 'services') {
       targetSlideId = 'bg-slide-services';
-    } else if (sectionId === 'skills' || sectionId === 'architecture') {
+    } else if (sectionId === 'skills') {
       targetSlideId = 'bg-slide-skills';
     } else if (sectionId === 'projects' || sectionId === 'experience' || sectionId === 'contact') {
       targetSlideId = 'bg-slide-projects';
@@ -568,40 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 12. Clean Architecture Code Tabs Switcher
-  const codeTabBtns = document.querySelectorAll('.code-tab-btn');
-  const codeSnippets = document.querySelectorAll('.code-content-block');
-
-  codeTabBtns.forEach(tab => {
-    tab.addEventListener('click', () => {
-      codeTabBtns.forEach(t => t.classList.remove('active'));
-      codeSnippets.forEach(s => s.style.display = 'none');
-
-      tab.classList.add('active');
-      const targetId = tab.getAttribute('data-tab');
-      const targetBlock = document.getElementById(targetId);
-      if (targetBlock) {
-        targetBlock.style.display = 'block';
-      }
-    });
-  });
-
-  // Copy Code Button
-  const copyCodeBtn = document.getElementById('copy-code-btn');
-  if (copyCodeBtn) {
-    copyCodeBtn.addEventListener('click', () => {
-      const activeBlock = document.querySelector('.code-content-block[style*="display: block"]') || document.querySelector('.code-content-block');
-      if (activeBlock) {
-        const text = activeBlock.innerText;
-        navigator.clipboard.writeText(text).then(() => {
-          copyCodeBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-          setTimeout(() => {
-            copyCodeBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Code';
-          }, 2000);
-        });
-      }
-    });
-  }
 
   // 13. Private Repository Walkthrough Request Handler (Works for Cards & Modal)
   document.addEventListener('click', (e) => {
