@@ -294,9 +294,9 @@
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.22fr 0.78fr;
+  grid-template-columns: 1.3fr 0.7fr;
   align-items: center;
-  gap: 2.75rem;
+  gap: 2.25rem;
 }
 
 .hero-badge-status {
@@ -376,10 +376,11 @@
 
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.45rem;
   margin-bottom: 2.25rem;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 /* Base button defaults */
@@ -399,6 +400,96 @@
   white-space: nowrap;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
+}
+
+/* Hero Button Suite (Strictly 1-Line Seamless Professional Row) */
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  height: 42px;
+  padding: 0 0.82rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-buttons .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 55%, #4f46e5 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 4px 14px -2px rgba(37, 99, 235, 0.4);
+}
+
+.hero-buttons .btn-primary:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 8px 22px -2px rgba(37, 99, 235, 0.55);
+  filter: brightness(1.08);
+}
+
+.hero-buttons .btn-secondary {
+  background: rgba(13, 20, 36, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.25);
+}
+
+.hero-buttons .btn-secondary:hover {
+  background: rgba(22, 33, 58, 0.9);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 8px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+.hero-buttons .btn-hero-cv:hover {
+  border-color: rgba(239, 68, 68, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 18px rgba(239, 68, 68, 0.22);
+}
+
+.hero-buttons .btn-hero-linkedin:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 18px rgba(14, 165, 233, 0.25);
+}
+
+.hero-buttons .btn-hero-github:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 18px rgba(255, 255, 255, 0.15);
+}
+
+.hero-buttons .btn-hero-contact:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 18px rgba(6, 182, 212, 0.25);
+}
+
+.hero-buttons .btn-pill-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  margin-left: 0.15rem;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.16);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.32);
+  line-height: 1;
 }
 
 /* Primary Button (View Projects) */
@@ -2704,6 +2795,8 @@ button.project-detail-link {
     order: 3;
     justify-content: center;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.6rem;
   }
 
   .hero-tech-strip {
