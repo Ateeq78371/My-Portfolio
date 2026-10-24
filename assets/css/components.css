@@ -494,6 +494,17 @@
   transform: rotate(-8deg) scale(1.15);
 }
 
+.btn-hero-linkedin i {
+  color: #0ea5e9;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-hero-linkedin:hover i {
+  color: #38bdf8;
+  transform: rotate(8deg) scale(1.15);
+}
+
 .btn-hero-contact .icon-contact {
   color: var(--accent-cyan);
   font-size: 0.95rem;
