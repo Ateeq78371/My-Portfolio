@@ -299,79 +299,185 @@
   gap: 2.25rem;
 }
 
+/* Hero Badge Status (Ultra-Modern Glassmorphic Cyber Pill) */
 .hero-badge-status {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.4rem 1.1rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.45rem 1.15rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.35);
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--accent-emerald);
-  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+  margin-bottom: 1.4rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 0 20px -4px rgba(16, 185, 129, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+}
+
+.hero-badge-status:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.14);
+  box-shadow: 
+    0 0 25px -2px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.status-pulse-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .status-pulse {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-emerald);
+  width: 9px;
+  height: 9px;
+  background: #10b981;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  animation: pulseGreen 2s infinite;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGreenGlow 2s infinite ease-in-out;
 }
 
-@keyframes pulseGreen {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+@keyframes pulseGreenGlow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8), 0 0 8px #10b981; }
+  70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0), 0 0 14px #10b981; }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0), 0 0 8px #10b981; }
 }
 
+.badge-status-dot-label {
+  color: #34d399;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-status-divider {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+}
+
+.badge-status-role {
+  color: #f1f5f9;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Greeting */
 .hero-greeting {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--accent-blue);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
   margin-bottom: 0.5rem;
   font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  letter-spacing: 0.02em;
 }
 
-.hero-title {
-  font-size: 3.6rem;
+.greeting-terminal-symbol {
+  color: #38bdf8;
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
+  animation: terminalBlink 1.4s infinite;
 }
 
+@keyframes terminalBlink {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.4; transform: translateX(2px); }
+}
+
+.greeting-text {
+  background: linear-gradient(90deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luminous Hero Title (Silicon Valley Executive Tier) */
+.hero-title {
+  font-size: 4.1rem;
+  font-weight: 850;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #bae6fd 80%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 28px rgba(6, 182, 212, 0.28));
+  transition: filter 0.3s ease;
+}
+
+.hero-title:hover {
+  filter: drop-shadow(0 6px 36px rgba(6, 182, 212, 0.45));
+}
+
+/* Typewriter Wrap with Professional Badge */
 .hero-typewriter-wrap {
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  min-height: 2.2rem;
+  margin-bottom: 1.6rem;
+  min-height: 2.4rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.typewriter-badge {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.32);
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.typewriter-badge i {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
 }
 
 .typewriter-text {
-  color: var(--accent-cyan);
-  border-right: 2px solid var(--accent-cyan);
-  padding-right: 4px;
+  color: #ffffff;
+  font-weight: 700;
+  border-right: 3px solid #06b6d4;
+  padding-right: 5px;
+  text-shadow: 0 0 16px rgba(6, 182, 212, 0.6);
   animation: blinkCursor 0.8s infinite;
 }
 
 @keyframes blinkCursor {
   0%, 100% { border-color: transparent; }
-  50% { border-color: var(--accent-cyan); }
+  50% { border-color: #06b6d4; }
 }
 
+/* Hero Bio (High Readability & Sophistication) */
 .hero-bio {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
+  font-size: 1.1rem;
+  color: #cbd5e1;
   margin-bottom: 2.25rem;
-  max-width: 540px;
-  line-height: 1.7;
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+.hero-bio strong {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .hero-buttons {
@@ -619,6 +725,37 @@
   border-color: var(--accent-blue);
   color: var(--accent-blue);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+[data-theme="light"] .hero-title {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: none;
+}
+
+[data-theme="light"] .hero-badge-status {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+[data-theme="light"] .badge-status-role {
+  color: #1e293b;
+}
+
+[data-theme="light"] .typewriter-text {
+  color: #0f172a;
+  text-shadow: none;
+  border-color: #0284c7;
+}
+
+[data-theme="light"] .hero-bio {
+  color: #334155;
+}
+
+[data-theme="light"] .hero-bio strong {
+  color: #0f172a;
+  text-shadow: none;
 }
 
 .hero-tech-strip {
